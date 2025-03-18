@@ -56,7 +56,7 @@ The number of possible connections depends upon the complexity of your map, but 
 - Ordinal compass directions: **NW, NE, SW, SE**
 - Vertical directions: **Up, Down**
 
-Creating connections between locations is the key to this project, and there are many ways this cam be done:
+Creating connections between locations is the key to this project, and there are many ways this can be done:
 - Using a co-ordinate system
 - Using location ids / indices
 - Using links to other location objects
