@@ -36,16 +36,13 @@ fun main() {
  * stored, plus any application logic functions
  */
 class App() {
-    // Constants defining any key values
-    val MAX_CLICKS = 10
-
     // Data fields
-    var clicks = 0
+    var currentLocation = "Corridor"
 
     // Application logic functions
-    fun updateClickCount() {
-        clicks++
-        if (clicks > MAX_CLICKS) clicks = MAX_CLICKS
+    fun updateLocation(newLocation: String) {
+        currentLocation = newLocation
+
     }
 }
 
@@ -61,7 +58,7 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
     private lateinit var PopUp: PopUpDialog
     private lateinit var openButton: JButton
 
-    private lateinit var clicksLabel: JLabel
+    private lateinit var locationLabel: JLabel
     private lateinit var locationDesc: JLabel
 
     private lateinit var northButton: JButton
@@ -114,15 +111,17 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
         openButton.setForeground(Color.BLACK)
         add(openButton)
 
-        clicksLabel = JLabel("Location")
-        clicksLabel.horizontalAlignment = SwingConstants.CENTER
-        clicksLabel.bounds = Rectangle(50, 0, 500, 100)
-        clicksLabel.font = headerFont
-        add(clicksLabel)
+        locationLabel = JLabel("Location")
+        locationLabel.horizontalAlignment = SwingConstants.CENTER
+        locationLabel.bounds = Rectangle(50, 0, 500, 100)
+        locationLabel.font = headerFont
+        locationLabel.setForeground(Color.WHITE)
+        add(locationLabel)
 
         locationDesc = JLabel("Description")
         locationDesc.bounds = Rectangle(50, 50, 500, 100)
         locationDesc.font = descFont
+        locationDesc.setForeground(Color.WHITE)
         add(locationDesc)
 
 // DIRECTION BUTTONS --------------------------------------------------------------
@@ -166,7 +165,7 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
      * of the application model
      */
     fun updateView() {
-
+        locationLabel.text = app.currentLocation
     }
 
     /**
@@ -180,8 +179,10 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
                 PopUp.isVisible = true
             }
             northButton -> {
-                app.updateClickCount()
-                updateView()
+                val newLocation = locationLabel.text
+                app.updateLocation(newLocation)
+                locationLabel.text = ""
+
             }
         }
     }
@@ -207,7 +208,11 @@ class PopUpDialog(): JDialog() {
     private fun addControls() {
         val basefont = Font(Font.SANS_SERIF, Font.PLAIN, 16)
 
-        val message = JLabel("<html>You are in a school.<br><br>Your goal is to navigate it using the direction buttons, and find and use all the keys throughout the school in order to escape.")
+        val message = JLabel("<html><b><u>Find all the keys!</u>" +
+                "<br><br>You are in a school" +
+                "<br>Your goal is to navigate throughout it using the direction buttons, " +
+                "and find and use all the keys throughout the school in order to escape. There are 10 keys in total")
+
         message.bounds = Rectangle(25,25,350,150)
         message.verticalAlignment = SwingConstants.TOP
         message.font = basefont
