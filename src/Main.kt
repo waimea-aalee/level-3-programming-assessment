@@ -30,6 +30,15 @@ fun main() {
 }
 
 
+class Room (val name: String, val description: String) {
+    var item: String? = null
+    var north: Room? = null
+    var south: Room? = null
+    var east: Room? = null
+    var west: Room? = null
+}
+
+
 /**
  * The application class (model)
  * This is the place where any application data should be
@@ -37,11 +46,27 @@ fun main() {
  */
 class App() {
     // Data fields
-    var currentLocation = "Corridor"
+    lateinit var currentLocation: Room
+
+    init {
+        val corridor = Room("Corridor", "A dark and dusty corridor")
+        val classroom = Room("Empty Classroom", "A ...")
+        val hall = Room("Hall", "A...")
+
+        corridor.north = classroom
+        classroom.south = corridor
+        classroom.west = hall
+        hall.east = classroom
+
+
+        currentLocation = corridor
+
+    }
+
 
     // Application logic functions
     fun updateLocation(newLocation: String) {
-        currentLocation = newLocation
+//        currentLocation = newLocation
 
     }
 }
@@ -55,7 +80,7 @@ class App() {
 class MainWindow(val app: App) : JFrame(), ActionListener {
 
     // Fields to hold the UI elements
-    private lateinit var PopUp: PopUpDialog
+    private lateinit var PopUp: InstructionPopUp
     private lateinit var openButton: JButton
 
     private lateinit var locationLabel: JLabel
@@ -101,7 +126,7 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
         val descFont = Font(Font.SANS_SERIF, Font.ITALIC, 20)
         val buttonFont = Font(Font.SANS_SERIF, Font.PLAIN, 20)
 
-        PopUp = PopUpDialog()
+        PopUp = InstructionPopUp()
 
         openButton = JButton("Instructions")
         openButton.bounds = Rectangle(425, 20, 150, 50)
@@ -165,7 +190,10 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
      * of the application model
      */
     fun updateView() {
-        locationLabel.text = app.currentLocation
+        locationLabel.text = app.currentLocation.name
+        locationDesc.text = app.currentLocation.description
+
+        // nameLabel.text = app.currentLocation.name
     }
 
     /**
@@ -179,16 +207,17 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
                 PopUp.isVisible = true
             }
             northButton -> {
-                val newLocation = locationLabel.text
-                app.updateLocation(newLocation)
-                locationLabel.text = ""
-
+//                val newLocation = locationLabel.text
+//                app.updateLocation(newLocation)
+//                locationLabel.text = ""
+                
+                updateView()
             }
         }
     }
 }
 
-class PopUpDialog(): JDialog() {
+class InstructionPopUp(): JDialog() {
 
     init {
         configureWindow()
@@ -198,7 +227,7 @@ class PopUpDialog(): JDialog() {
 
     private fun configureWindow() {
         title = "Instructions"
-        contentPane.preferredSize = Dimension(400, 200)
+        contentPane.preferredSize = Dimension(400, 250)
         isResizable = false
         isModal = true
         layout = null
@@ -208,10 +237,11 @@ class PopUpDialog(): JDialog() {
     private fun addControls() {
         val basefont = Font(Font.SANS_SERIF, Font.PLAIN, 16)
 
-        val message = JLabel("<html><b><u>Find all the keys!</u>" +
+        val message = JLabel("<html><u>Find all the keys!</u>" +
                 "<br><br>You are in a school" +
                 "<br>Your goal is to navigate throughout it using the direction buttons, " +
-                "and find and use all the keys throughout the school in order to escape. There are 10 keys in total")
+                "and find and use all the keys throughout the school in order to escape. " +
+                "There are 10 keys in total. Good luck!")
 
         message.bounds = Rectangle(25,25,350,150)
         message.verticalAlignment = SwingConstants.TOP
