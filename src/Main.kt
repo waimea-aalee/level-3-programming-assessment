@@ -50,13 +50,15 @@ class App() {
 
     init {
         val corridor = Room("Corridor", "A dark and dusty corridor")
-        val classroom = Room("Empty Classroom", "A ...")
-        val hall = Room("Hall", "A...")
+        val emptyClass = Room("Empty Classroom", "A ...")
+        val hall = Room("Hall", "A ...")
+        val office = Room("Office", "A ...")
 
-        corridor.north = classroom
-        classroom.south = corridor
-        classroom.west = hall
-        hall.east = classroom
+        corridor.south = office
+        corridor.north = emptyClass
+        emptyClass.south = corridor
+        emptyClass.west = hall
+        hall.east = emptyClass
 
 
         currentLocation = corridor
@@ -84,12 +86,12 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
     private lateinit var openButton: JButton
 
     private lateinit var locationLabel: JLabel
-    private lateinit var locationDesc: JLabel
+    private lateinit var locationDesc:  JLabel
 
     private lateinit var northButton: JButton
-    private lateinit var eastButton: JButton
+    private lateinit var eastButton:  JButton
     private lateinit var southButton: JButton
-    private lateinit var westButton: JButton
+    private lateinit var westButton:  JButton
 
     /**
      * Configure the UI and display it
@@ -122,9 +124,9 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
      * Populate the UI with UI controls
      */
     private fun addControls() {
-        val headerFont = Font(Font.SANS_SERIF, Font.BOLD, 36)
-        val descFont = Font(Font.SANS_SERIF, Font.ITALIC, 20)
-        val buttonFont = Font(Font.SANS_SERIF, Font.PLAIN, 20)
+        val headerFont = Font(Font.SANS_SERIF, Font.BOLD,   36)
+        val descFont =   Font(Font.SANS_SERIF, Font.ITALIC, 20)
+        val buttonFont = Font(Font.SANS_SERIF, Font.PLAIN,  20)
 
         PopUp = InstructionPopUp()
 
@@ -210,7 +212,7 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
 //                val newLocation = locationLabel.text
 //                app.updateLocation(newLocation)
 //                locationLabel.text = ""
-                
+
                 updateView()
             }
         }
@@ -227,7 +229,7 @@ class InstructionPopUp(): JDialog() {
 
     private fun configureWindow() {
         title = "Instructions"
-        contentPane.preferredSize = Dimension(400, 250)
+        contentPane.preferredSize = Dimension(400, 200)
         isResizable = false
         isModal = true
         layout = null
@@ -238,14 +240,15 @@ class InstructionPopUp(): JDialog() {
         val basefont = Font(Font.SANS_SERIF, Font.PLAIN, 16)
 
         val message = JLabel("<html><u>Find all the keys!</u>" +
-                "<br><br>You are in a school" +
-                "<br>Your goal is to navigate throughout it using the direction buttons, " +
-                "and find and use all the keys throughout the school in order to escape. " +
-                "There are 10 keys in total. Good luck!")
+                "<br><br>You are in an abandoned school." +
+                "<br>Your goal is to navigate through it using the direction buttons, " +
+                "and find all the keys throughout the school in order to escape. " +
+                "<br>Good luck!")
 
         message.bounds = Rectangle(25,25,350,150)
         message.verticalAlignment = SwingConstants.TOP
         message.font = basefont
+        message.setForeground(Color.WHITE)
         add(message)
     }
 }
