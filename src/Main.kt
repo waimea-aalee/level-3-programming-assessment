@@ -38,7 +38,6 @@ class Room (val name: String, val description: String) {
     var west: Room? = null
 }
 
-
 /**
  * The application class (model)
  * This is the place where any application data should be
@@ -53,9 +52,11 @@ class App() {
         val emptyClass = Room("Empty Classroom", "A ...")
         val hall = Room("Hall", "A ...")
         val office = Room("Office", "A ...")
+        val computerRoom = Room("Computer", "A ...")
 
-        corridor.south = office
         corridor.north = emptyClass
+        corridor.south = office
+        corridor.west = computerRoom
         emptyClass.south = corridor
         emptyClass.west = hall
         hall.east = emptyClass
@@ -110,7 +111,7 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
      * Configure the main window
      */
     private fun configureWindow() {
-        title = "Kotlin Swing GUI Demo"
+        title = "Escape the School"
         contentPane.preferredSize = Dimension(600, 500)
         defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
         isResizable = false
