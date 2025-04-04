@@ -9,13 +9,13 @@ This checklist can be used to gauge progress towards different levels of success
 ### Program Functionality
 
 The game functions correctly and meets the specification:
-- [ ] The game is **playable**
-- [ ] The game has a **GUI** with a range of controls
-- [ ] The **instructions** for the game are available via the GUI
-- [ ] Player provides game **inputs via the GUI** (e.g. moves, actions)
-- [ ] The **current status** of the game is **shown in the GUI**, updated each player input
-- [ ] The game is based on a **non-trivial map**
-- [ ] The player can **move between locations**
+- [X] The game is **playable**
+- [X] The game has a **GUI** with a range of controls
+- [X] The **instructions** for the game are available via the GUI
+- [X] Player provides game **inputs via the GUI** (e.g. moves, actions)
+- [X] The **current status** of the game is **shown in the GUI**, updated each player input
+- [X] The game is based on a **non-trivial map**
+- [X] The player can **move between locations**
 - [ ] The player has a **clear purpose** they can attempt to achieve
 - [ ] A **win / end / loss state** is possible
 
