@@ -52,20 +52,79 @@ class App() {
         val emptyClass = Room("Empty Classroom", "A ...")
         val hall = Room("Hall", "A ...")
         val office = Room("Office", "A ...")
-        val computerRoom = Room("Computer", "A ...")
+        val computerRoom = Room("Computer Room", "A ...")
+        val scienceLab = Room("Science Lab", "A ...")
+        val mathClass = Room("Math Class", "A ...")
+        val gym = Room("Gym", "A ...")
+        val storageRoom = Room("Storage Room", "A ...")
+        val courtyard = Room("Courtyard", "A ...")
+        val library = Room("Library", "A ...")
+        val englishRoom = Room("English Class", "A ...")
+        val musicRoom = Room("Music Class", "A ...")
+        val closet  = Room("Closet", "A ...")
+        val cafeteria = Room("Cafeteria", "A ...")
+        val artRoom = Room("Art Room", "A ...")
 
         corridor.north = emptyClass
         corridor.south = office
+        office.south = cafeteria
+        cafeteria.west = artRoom
+        artRoom.east = cafeteria
         corridor.west = computerRoom
         emptyClass.south = corridor
         emptyClass.west = hall
         hall.east = emptyClass
+        hall.west = scienceLab
+        scienceLab.south = mathClass
+        scienceLab.east = hall
+        mathClass.north = scienceLab
+        computerRoom.west = gym
+        gym.east = computerRoom
+        computerRoom.south = library
+        library.south = closet
+        closet.north = library
+        closet.west = musicRoom
+        library.west = courtyard
+        courtyard.west = storageRoom
+        storageRoom.south = englishRoom
+        englishRoom.north = storageRoom
+        englishRoom.east = musicRoom
+        musicRoom.west = englishRoom
+        musicRoom.east = closet
+        library.north = computerRoom
+        courtyard.east = library
+        computerRoom.east = corridor
+        office.north = corridor
+        cafeteria.north = office
 
 
         currentLocation = corridor
 
     }
 
+    fun moveNorth() {
+        if (currentLocation.north == null) return
+
+        currentLocation = currentLocation.north!!
+    }
+
+    fun moveEast() {
+        if (currentLocation.east == null) return
+
+        currentLocation = currentLocation.east!!
+    }
+
+    fun moveSouth() {
+        if (currentLocation.south == null) return
+
+        currentLocation = currentLocation.south!!
+    }
+
+    fun moveWest() {
+        if (currentLocation.west == null) return
+
+        currentLocation = currentLocation.west!!
+    }
 
     // Application logic functions
     fun updateLocation(newLocation: String) {
@@ -131,8 +190,8 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
 
         PopUp = InstructionPopUp()
 
-        openButton = JButton("Instructions")
-        openButton.bounds = Rectangle(425, 20, 150, 50)
+        openButton = JButton("Goal")
+        openButton.bounds = Rectangle(455, 20, 120, 50)
         openButton.font = buttonFont
         openButton.addActionListener(this)
         openButton.background = Color.WHITE
@@ -196,6 +255,10 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
         locationLabel.text = app.currentLocation.name
         locationDesc.text = app.currentLocation.description
 
+        northButton.isEnabled = app.currentLocation.north != null
+        eastButton.isEnabled = app.currentLocation.east != null
+        southButton.isEnabled = app.currentLocation.south != null
+        westButton.isEnabled = app.currentLocation.west != null
         // nameLabel.text = app.currentLocation.name
     }
 
@@ -210,10 +273,19 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
                 PopUp.isVisible = true
             }
             northButton -> {
-//                val newLocation = locationLabel.text
-//                app.updateLocation(newLocation)
-//                locationLabel.text = ""
-
+                app.moveNorth()
+                updateView()
+            }
+            eastButton -> {
+                app.moveEast()
+                updateView()
+            }
+            southButton -> {
+                app.moveSouth()
+                updateView()
+            }
+            westButton -> {
+                app.moveWest()
                 updateView()
             }
         }
@@ -229,7 +301,7 @@ class InstructionPopUp(): JDialog() {
     }
 
     private fun configureWindow() {
-        title = "Instructions"
+        title = "Goal"
         contentPane.preferredSize = Dimension(400, 200)
         isResizable = false
         isModal = true
