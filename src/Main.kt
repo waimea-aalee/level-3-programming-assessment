@@ -48,22 +48,23 @@ class App() {
     lateinit var currentLocation: Room
 
     init {
-        val corridor = Room("Corridor", "A dark and dusty corridor")
-        val emptyClass = Room("Empty Classroom", "A ...")
-        val hall = Room("Hall", "A ...")
-        val office = Room("Office", "A ...")
-        val computerRoom = Room("Computer Room", "A ...")
-        val scienceLab = Room("Science Lab", "A ...")
-        val mathClass = Room("Math Class", "A ...")
-        val gym = Room("Gym", "A ...")
-        val storageRoom = Room("Storage Room", "A ...")
-        val courtyard = Room("Courtyard", "A ...")
-        val library = Room("Library", "A ...")
-        val englishRoom = Room("English Class", "A ...")
-        val musicRoom = Room("Music Class", "A ...")
-        val closet  = Room("Closet", "A ...")
+        val corridor = Room("Corridor", "You find yourself in a dark and dusty corridor")
+        val emptyClass = Room("Empty Classroom", "You are in a class room, with only a couple dusty knocked over desks and chairs")
+        val hall = Room("Hall", "You are in a large hall which echoes with every footstep")
+        val office = Room("Office", "You are in the office.")
+        val computerRoom = Room("Computer Room", "Nothing but a bunch of cobweb covered computers")
+        val scienceLab = Room("Science Lab", "You are in the science lab, there's broken glasses all over the floor")
+        val mathClass = Room("Math Class", "You walk into the math class, there's dusty books all over the floor")
+        val gym = Room("Gym", "You are in the gym, there's a score board that flickers lights and a few basketballs laying around")
+        val storageRoom = Room("Storage Room", "You are in the storage room, it's full of run down gym and cleaning equipment")
+        val courtyard = Room("Courtyard", "You are in the courtyard.")
+        val library = Room("Library", "You are in a large library, there's books on the shelves and floor and there's knocked over ladders that reached the top shelves.")
+        val englishRoom = Room("English Class", "You are in an English class, there's ripped up faded posters along the walls and a ruined projector.")
+        val musicRoom = Room("Music Class", "You are in the music class, there's dusty instruments everywhere, they all look broken.")
+        val closet  = Room("Closet", "You are in a dark, cramped closet with a singular flickering light dangling down from the ceiling.")
         val cafeteria = Room("Cafeteria", "A ...")
         val artRoom = Room("Art Room", "A ...")
+        val auditorium = Room("Auditorium", "You are in the auditorium.")
 
         corridor.north = emptyClass
         corridor.south = office
@@ -96,6 +97,9 @@ class App() {
         computerRoom.east = corridor
         office.north = corridor
         cafeteria.north = office
+        artRoom.west = auditorium
+        musicRoom.south = auditorium
+        auditorium.east = artRoom
 
 
         currentLocation = corridor
