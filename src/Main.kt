@@ -65,6 +65,10 @@ class App() {
         val cafeteria = Room("Cafeteria", "A ...")
         val artRoom = Room("Art Room", "A ...")
         val auditorium = Room("Auditorium", "You are in the auditorium.")
+        val theater = Room("Theater", "You are in the theater.")
+        val languageClass = Room("Language Class", "You are in the language classroom.")
+        val socialStudies = Room("Social Studies", "You are in the social studies class.")
+        val randomClass = Room("Random Class", "You are in the random class.")
 
         corridor.north = emptyClass
         corridor.south = office
@@ -100,6 +104,20 @@ class App() {
         artRoom.west = auditorium
         musicRoom.south = auditorium
         auditorium.east = artRoom
+        office.west = languageClass
+        languageClass.east = office
+        hall.south = theater
+        gym.north = theater
+        theater.north = hall
+        theater.south = gym
+        languageClass.south = socialStudies
+        socialStudies.north = languageClass
+        gym.south = randomClass
+        courtyard.north = randomClass
+        randomClass.north = gym
+        randomClass.south = courtyard
+        artRoom.north = closet
+        closet.south = artRoom
 
 
         currentLocation = corridor
