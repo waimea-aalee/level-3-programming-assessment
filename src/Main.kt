@@ -52,9 +52,9 @@ class App() {
         val hall = Room("Hall", "You are in a large hall which echoes with every footstep")
         val office = Room("Office", "You are in the office.")
         val computerRoom = Room("Computer Room", "Nothing but a bunch of cobweb covered computers")
-        val computerRoomTwo = Room("Computer Room", "Nothing but a bunch of cobweb covered computers")
-        val scienceLab = Room("Science Lab", "You are in the science lab, there's broken glasses all over the floor")
-        val scienceLabTwo = Room("Science Lab", "You are in the science lab.")
+        val computerRoomTwo = Room("Computer Room", "A room full of bunch of dusty broken computers")
+        val scienceLab = Room("Science Lab", "There's broken glasses all over the floor")
+        val scienceLabTwo = Room("Science Lab", "There's spills all over the floor.")
         val mathClass = Room("Math Class", "You walk into the math class, there's dusty books all over the floor")
         val gym = Room("Gym", "You are in the gym, there's a score board that flickers lights and a few basketballs laying around")
         val storageRoom = Room("Storage Room", "You are in the storage room, it's full of run down gym and cleaning equipment")
@@ -66,14 +66,14 @@ class App() {
         val cafeteria = Room("Cafeteria", "A ...")
         val artRoom = Room("Art Room", "A ...")
         val auditorium = Room("Auditorium", "You are in the auditorium.")
-        val theater = Room("Theater", "You are in the theater.")
+        val theater = Room("Theater", "There's a projector with a strange noise coming from it")
         val languageClass = Room("Language Class", "You are in the language classroom.")
         val socialStudies = Room("Social Studies", "You are in the social studies class.")
-        val classOne = Room("Random Class", "You are in the random class.")
-        val classTwo = Room("Random Class", "You are in the random class.")
-        val classThree = Room("Random Class", "You are in the random class.")
-        val classFour = Room("Random Class", "You are in the random class.")
-        val bathroom = Room("Bathroom", "You are in the bathroom.")
+        val lectureHall = Room("Lecture Hall", "There's a bunch of seats and desks with paper laying around.")
+        val sewingClass = Room("Sewing Class", "There's old rusty sewing machines on almost every table.")
+        val bathroom = Room("Bathroom", "A bunch of bathroom stalls with graffiti on the doors")
+        val passage = Room("Passage", "You find a small cramped passage with paths to multiple rooms.")
+        val exit = Room("Exit", "You are at the exit, there are many locks on the door.")
 
 
 
@@ -123,10 +123,10 @@ class App() {
         theater.south = gym
         languageClass.south = socialStudies
         socialStudies.north = languageClass
-        gym.south = classOne
-        courtyard.north = classOne
-        classOne.north = gym
-        classOne.south = courtyard
+        gym.south = lectureHall
+        courtyard.north = lectureHall
+        lectureHall.north = gym
+        lectureHall.south = courtyard
         artRoom.north = closet
         closet.south = artRoom
         mathClass.east = bathroom
@@ -135,8 +135,22 @@ class App() {
         bathroom.north = scienceLabTwo
         scienceLabTwo.north = computerRoomTwo
         computerRoomTwo.south = scienceLabTwo
-        gym.west = bathroom
         scienceLabTwo.south = bathroom
+        languageClass.north = passage
+        passage.north = exit
+        passage.east = corridor
+        passage.west = computerRoom
+        exit.east = auditorium
+        auditorium.north = musicRoom
+        computerRoomTwo.east = hall
+        lectureHall.east = sewingClass
+        sewingClass.north = gym
+        gym.south = sewingClass
+        sewingClass.south = courtyard
+        courtyard.north = sewingClass
+        mathClass.south = lectureHall
+        lectureHall.north = mathClass
+        sewingClass.west = lectureHall
 
 
         currentLocation = corridor
