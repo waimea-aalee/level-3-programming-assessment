@@ -19,7 +19,6 @@ import java.awt.*
 import java.awt.event.*
 import javax.swing.*
 
-
 /**
  * Launch the application
  */
