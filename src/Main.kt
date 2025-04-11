@@ -52,7 +52,9 @@ class App() {
         val hall = Room("Hall", "You are in a large hall which echoes with every footstep")
         val office = Room("Office", "You are in the office.")
         val computerRoom = Room("Computer Room", "Nothing but a bunch of cobweb covered computers")
+        val computerRoomTwo = Room("Computer Room", "Nothing but a bunch of cobweb covered computers")
         val scienceLab = Room("Science Lab", "You are in the science lab, there's broken glasses all over the floor")
+        val scienceLabTwo = Room("Science Lab", "You are in the science lab.")
         val mathClass = Room("Math Class", "You walk into the math class, there's dusty books all over the floor")
         val gym = Room("Gym", "You are in the gym, there's a score board that flickers lights and a few basketballs laying around")
         val storageRoom = Room("Storage Room", "You are in the storage room, it's full of run down gym and cleaning equipment")
@@ -67,7 +69,17 @@ class App() {
         val theater = Room("Theater", "You are in the theater.")
         val languageClass = Room("Language Class", "You are in the language classroom.")
         val socialStudies = Room("Social Studies", "You are in the social studies class.")
-        val randomClass = Room("Random Class", "You are in the random class.")
+        val classOne = Room("Random Class", "You are in the random class.")
+        val classTwo = Room("Random Class", "You are in the random class.")
+        val classThree = Room("Random Class", "You are in the random class.")
+        val classFour = Room("Random Class", "You are in the random class.")
+        val bathroom = Room("Bathroom", "You are in the bathroom.")
+
+
+
+
+
+
 
         corridor.north = emptyClass
         corridor.south = office
@@ -111,12 +123,20 @@ class App() {
         theater.south = gym
         languageClass.south = socialStudies
         socialStudies.north = languageClass
-        gym.south = randomClass
-        courtyard.north = randomClass
-        randomClass.north = gym
-        randomClass.south = courtyard
+        gym.south = classOne
+        courtyard.north = classOne
+        classOne.north = gym
+        classOne.south = courtyard
         artRoom.north = closet
         closet.south = artRoom
+        mathClass.east = bathroom
+        bathroom.west = mathClass
+        bathroom.east = gym
+        bathroom.north = scienceLabTwo
+        scienceLabTwo.north = computerRoomTwo
+        computerRoomTwo.south = scienceLabTwo
+        gym.west = bathroom
+        scienceLabTwo.south = bathroom
 
 
         currentLocation = corridor
