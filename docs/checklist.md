@@ -36,7 +36,7 @@ The program structure:
 ### Program Documentation
 
 The program code:
-- [ ] Is **indented** correctly
+- [X] Is **indented** correctly
 - [ ] Is **laid-out clearly**
 - [ ] Contains **comments** that help in understanding how it works
 

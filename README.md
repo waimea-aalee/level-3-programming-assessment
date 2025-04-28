@@ -1,4 +1,4 @@
-# PROJECT NAME HERE
+# Escape the School
 
 by Azaria Lee
 
@@ -11,8 +11,6 @@ The project is written in the [Kotlin](https://kotlinlang.org) programming langu
 - Reading from, or writing to, files
 - Object-oriented programming (OOP) classes and objects
 - Using non-core API, library or framework
-
-** EDIT LIST ABOVE TO MATCH YOUR PROJECT**
 
 ---
 
