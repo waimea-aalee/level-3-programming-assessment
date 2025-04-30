@@ -72,8 +72,13 @@ class App() {
         val lectureHall = Room("Lecture Hall", "There's a bunch of seats and desks with paper laying around.")
         val sewingClass = Room("Sewing Class", "There's old rusty sewing machines on almost every table.")
         val bathroom = Room("Bathroom", "A bunch of bathroom stalls with graffiti on the doors")
-        val passage = Room("Passage", "You find a small cramped passage with paths to multiple rooms.")
         val exit = Room("Exit", "You are at the exit, there are many locks on the door.")
+        val passage = Room("Passage", "You find a small cramped passage with paths to multiple rooms.")
+        val classTwo = Room("Two",  "You are in class two")
+        val classThree = Room("Three",  "You are in class three")
+        val classFour = Room("Four",  "You are in class four")
+        val classFive = Room("Five",  "You are in class five")
+        val classSix = Room("Six",  "You are in class six")
 
 
 
@@ -86,7 +91,8 @@ class App() {
         office.south = cafeteria
         cafeteria.west = artRoom
         artRoom.east = cafeteria
-        corridor.west = computerRoom
+        corridor.west = classFour
+        classFour.east = corridor
         emptyClass.south = corridor
         emptyClass.west = hall
         hall.east = emptyClass
@@ -109,7 +115,8 @@ class App() {
         musicRoom.east = closet
         library.north = computerRoom
         courtyard.east = library
-        computerRoom.east = corridor
+        computerRoom.east = classFour
+        classFour.west = computerRoom
         office.north = corridor
         cafeteria.north = office
         artRoom.west = auditorium
@@ -136,10 +143,6 @@ class App() {
         scienceLabTwo.north = computerRoomTwo
         computerRoomTwo.south = scienceLabTwo
         scienceLabTwo.south = bathroom
-        languageClass.north = passage
-        passage.north = exit
-        passage.east = corridor
-        passage.west = computerRoom
         exit.east = auditorium
         auditorium.north = musicRoom
         computerRoomTwo.east = hall
@@ -151,6 +154,19 @@ class App() {
         mathClass.south = lectureHall
         lectureHall.north = mathClass
         sewingClass.west = lectureHall
+        hall.east = passage
+        passage.west = hall
+        emptyClass.west = classTwo
+        classTwo.east = emptyClass
+        classTwo.south = classThree
+        classThree.north = classTwo
+        languageClass.west = classFive
+        classFive.east = languageClass
+        closet.east = classSix
+        classSix.west = closet
+        passage.north = exit
+        passage.east = emptyClass
+        passage.south = classTwo
 
 
         currentLocation = corridor
@@ -367,10 +383,10 @@ class InstructionPopUp(): JDialog() {
     private fun addControls() {
         val basefont = Font(Font.SANS_SERIF, Font.PLAIN, 16)
 
-        val message = JLabel("<html><u>Find all the keys!</u>" +
+        val message = JLabel("<html><u>Escape the school!</u>" +
                 "<br><br>You are in an abandoned school." +
-                "<br>Your goal is to navigate through it using the direction buttons, " +
-                "and find all the keys throughout the school in order to escape. " +
+                "<br>Your goal is to navigate your way through the maze, " +
+                "and find the exit. " +
                 "<br>Good luck!")
 
         message.bounds = Rectangle(25,25,350,150)
