@@ -72,13 +72,14 @@ class App() {
         val lectureHall = Room("Lecture Hall", "There's a bunch of seats and desks with paper laying around.")
         val sewingClass = Room("Sewing Class", "There's old rusty sewing machines on almost every table.")
         val bathroom = Room("Bathroom", "A bunch of bathroom stalls with graffiti on the doors")
-        val exit = Room("Exit", "You are at the exit, there are many locks on the door.")
+        val exit = Room("Exit", "You are at the exit.")
         val passage = Room("Passage", "You find a small cramped passage with paths to multiple rooms.")
-        val classTwo = Room("Two",  "You are in class two")
-        val classThree = Room("Three",  "You are in class three")
-        val classFour = Room("Four",  "You are in class four")
-        val classFive = Room("Five",  "You are in class five")
-        val classSix = Room("Six",  "You are in class six")
+        val photography = Room("Photography",  "A bunch of run down cameras with shattered lens'")
+        val teachersLounge = Room("Teachers Lounge",  "There's couches dusty mugs on tables")
+        val geography = Room("Geography",  "There's a globe at the front of the class collecting dust")
+        val history = Room("History Class",  "There's torn up posters all around the walls and dusty history books laying around")
+        val health = Room("Health Class",  "You are in health class, the whiteboard has rubbed off writing and an old tape sitting on the front desk")
+        val outside = Room("Congrats!", "You have escaped the school!")
 
 
 
@@ -91,15 +92,11 @@ class App() {
         office.south = cafeteria
         cafeteria.west = artRoom
         artRoom.east = cafeteria
-        corridor.west = classFour
-        classFour.east = corridor
+        corridor.west = geography
+        geography.east = corridor
         emptyClass.south = corridor
-        emptyClass.west = hall
-        hall.east = emptyClass
         hall.west = scienceLab
-        scienceLab.south = mathClass
         scienceLab.east = hall
-        mathClass.north = scienceLab
         computerRoom.west = gym
         gym.east = computerRoom
         computerRoom.south = library
@@ -115,8 +112,8 @@ class App() {
         musicRoom.east = closet
         library.north = computerRoom
         courtyard.east = library
-        computerRoom.east = classFour
-        classFour.west = computerRoom
+        computerRoom.east = geography
+        geography.west = computerRoom
         office.north = corridor
         cafeteria.north = office
         artRoom.west = auditorium
@@ -125,9 +122,7 @@ class App() {
         office.west = languageClass
         languageClass.east = office
         hall.south = theater
-        gym.north = theater
         theater.north = hall
-        theater.south = gym
         languageClass.south = socialStudies
         socialStudies.north = languageClass
         gym.south = lectureHall
@@ -143,9 +138,7 @@ class App() {
         scienceLabTwo.north = computerRoomTwo
         computerRoomTwo.south = scienceLabTwo
         scienceLabTwo.south = bathroom
-        exit.east = auditorium
         auditorium.north = musicRoom
-        computerRoomTwo.east = hall
         lectureHall.east = sewingClass
         sewingClass.north = gym
         gym.south = sewingClass
@@ -156,17 +149,21 @@ class App() {
         sewingClass.west = lectureHall
         hall.east = passage
         passage.west = hall
-        emptyClass.west = classTwo
-        classTwo.east = emptyClass
-        classTwo.south = classThree
-        classThree.north = classTwo
-        languageClass.west = classFive
-        classFive.east = languageClass
-        closet.east = classSix
-        classSix.west = closet
+        emptyClass.west = photography
+        photography.east = emptyClass
+        photography.south = teachersLounge
+        teachersLounge.north = photography
+        languageClass.west = history
+        history.east = languageClass
+        closet.east = health
+        health.west = closet
+        health.north = socialStudies
+        socialStudies.south = health
         passage.north = exit
         passage.east = emptyClass
-        passage.south = classTwo
+        passage.south = photography
+        scienceLabTwo.east = theater
+        exit.north = outside
 
 
         currentLocation = corridor
