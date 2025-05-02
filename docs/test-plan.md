@@ -10,13 +10,13 @@ Terminology:
 
 ---
 
-## Example Test Name
+## Movement
 
-Example test description. Example test description. Example test description. Example test description. Example test description. Example test description.
+The exit should be possible to get to
 
-### Test Data To Use
+### Movement
 
-Details of test data and reasons for selection. Details of test data and reasons for selection. Details of test data and reasons for selection.
+The player should not be able to go to invalid rooms
 
 ### Expected Test Result
 

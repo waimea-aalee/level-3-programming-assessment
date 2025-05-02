@@ -47,38 +47,38 @@ class App() {
 
     init {
         val corridor = Room("Corridor", "You find yourself in a dark and dusty corridor")
-        val emptyClass = Room("Empty Classroom", "You are in a class room, with only a couple dusty knocked over desks and chairs")
+        val emptyClass = Room("Empty Classroom", "<html>Your footsteps echo as you walk in<br>There's only a couple dusty knocked over desks and chairs")
         val hall = Room("Hall", "You are in a large hall which echoes with every footstep")
-        val office = Room("Office", "You are in the office.")
+        val office = Room("Office", "<html><br>There's a desk with a computer<br>and lots of papers sprawled across the room")
         val computerRoom = Room("Computer Room", "Nothing but a bunch of cobweb covered computers")
         val computerRoomTwo = Room("Computer Room", "A room full of bunch of dusty broken computers")
         val scienceLab = Room("Science Lab", "There's broken glasses all over the floor")
-        val scienceLabTwo = Room("Science Lab", "There's spills all over the floor.")
-        val mathClass = Room("Math Class", "You walk into the math class, there's dusty books all over the floor")
-        val gym = Room("Gym", "You are in the gym, there's a score board that flickers lights and a few basketballs laying around")
-        val storageRoom = Room("Storage Room", "You are in the storage room, it's full of run down gym and cleaning equipment")
-        val courtyard = Room("Courtyard", "You are in the courtyard.")
-        val library = Room("Library", "You are in a large library, there's books on the shelves and floor and there's knocked over ladders that reached the top shelves.")
-        val englishRoom = Room("English Class", "You are in an English class, there's ripped up faded posters along the walls and a ruined projector.")
-        val musicRoom = Room("Music Class", "You are in the music class, there's dusty instruments everywhere, they all look broken.")
-        val closet  = Room("Closet", "You are in a dark, cramped closet with a singular flickering light dangling down from the ceiling.")
-        val cafeteria = Room("Cafeteria", "There is large tables with benches covered in dust and empty trays")
+        val scienceLabTwo = Room("Science Lab", "There's mysterious spills all over the floor.")
+        val mathClass = Room("Math Class", "<html>You walk into the math class. <br>There's dusty books all over the floor")
+        val gym = Room("Gym", "<html>You are in the gym.<br>There's a score board that flickers lit up numbers<br>and a few basketballs laying around")
+        val storageRoom = Room("Storage Room", "<html>You are in the storage room.<br>It's full of run down gym and cleaning equipment")
+        val courtyard = Room("Courtyard", "<html>You are in the courtyard.<br>The school building surrounds, there's a fenced off garden with wilting flowers<br>and trees that surround swaying in the breeze")
+        val library = Room("Library", "<html>You are in a large library.<br>There's books on the shelves and floor<br>Along the floor is knocked over ladders that reached the top shelves.")
+        val englishRoom = Room("English Class", "<html>You are in an English class.<br>There's torn, faded posters along the walls<br>and a ruined projector.")
+        val musicRoom = Room("Music Class", "<html>You are in the music class.<br>There's dusty instruments everywhere, they all look broken.")
+        val closet  = Room("Closet", "<html>You are in a dark, cramped closet<br>with a singular flickering light dangling down from the ceiling.")
+        val cafeteria = Room("Cafeteria", "<html>There are large tables with benches<br>with faint dusty hand prints and empty trays")
         val artRoom = Room("Art Room", "There's paint splattered everywhere")
-        val auditorium = Room("Auditorium", "You are in the auditorium.")
+        val auditorium = Room("Auditorium", "You can hear the faint echos of talking")
         val theater = Room("Theater", "There's a projector with a strange noise coming from it")
         val languageClass = Room("Language Class", "You are in the language classroom.")
         val socialStudies = Room("Social Studies", "You are in the social studies class.")
-        val lectureHall = Room("Lecture Hall", "There's a bunch of seats and desks with paper laying around.")
-        val sewingClass = Room("Sewing Class", "There's old rusty sewing machines on almost every table.")
+        val lectureHall = Room("Lecture Hall", "<html>There's a bunch of seats and desks with<br>paper laying around.")
+        val sewingClass = Room("Sewing Class", "<html>There's old rusty sewing machines on<br>almost every table.")
         val bathroom = Room("Bathroom", "A bunch of bathroom stalls with graffiti on the doors")
-        val exit = Room("Exit", "You are at the exit.")
-        val passage = Room("Passage", "You find a small cramped passage with paths to multiple rooms.")
+        val exit = Room("Exit", "<html>You are at the exit.<br>Go forth to escape")
+        val passage = Room("Passage", "<html>You find a small cramped passage.<br>It has paths to multiple rooms.")
         val photography = Room("Photography",  "A bunch of run down cameras with shattered lens'")
         val teachersLounge = Room("Teachers Lounge",  "There's couches dusty mugs on tables")
         val geography = Room("Geography",  "There's a globe at the front of the class collecting dust")
-        val history = Room("History Class",  "There's torn up posters all around the walls and dusty history books laying around")
-        val health = Room("Health Class",  "You are in health class, the whiteboard has rubbed off writing and an old tape sitting on the front desk")
-        val outside = Room("Congrats!", "You have escaped the school!")
+        val history = Room("History Class",  "<html>There's torn up posters all around the walls<br>and dusty history books laying around")
+        val health = Room("Health Class",  "<html>You are in health class.<br>The whiteboard has rubbed off writing<br>and an old tape sitting on the front desk")
+        val outside = Room("Congrats!", "You have successfully escaped the school!")
 
 
         /**
@@ -162,6 +162,7 @@ class App() {
         passage.south = photography
         scienceLabTwo.east = theater
         exit.north = outside
+        theater.west = scienceLabTwo
 
 
         currentLocation = corridor
@@ -266,7 +267,7 @@ class MainWindow(val app: App) : JFrame(), ActionListener {
         add(locationLabel)
 
         locationDesc = JLabel("Description")
-        locationDesc.bounds = Rectangle(50, 50, 500, 100)
+        locationDesc.bounds = Rectangle(50, 50, 500, 200)
         locationDesc.font = descFont
         locationDesc.setForeground(Color.WHITE)
         add(locationDesc)

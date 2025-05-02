@@ -47,7 +47,6 @@ The program has been tested and there is documented evidence that:
   - [ ] game setup
   - [ ] player movement
   - [ ] other player actions
-  - [ ] scoring (if any)
   - [ ] player win / lose states
   - [ ] final feedback (if appropriate)
 - [ ] **Valid (expected) data** has been used to test **all data inputs**

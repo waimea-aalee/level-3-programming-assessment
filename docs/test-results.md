@@ -4,20 +4,19 @@ The test results show the actual outcome of the testing, following the [Test Pla
 
 ---
 
-## Example Test Name
+## Movement
 
-Example test description. Example test description.Example test description. Example test description.Example test description. Example test description.
+User should be able to access every room, and be able to get to the exit
 
 ### Test Data Used
 
-Details of test data. Details of test data. Details of test data. Details of test data. Details of test data. Details of test data. Details of test data.
+Using a screenshot of the exit
 
 ### Test Result
 
-![example.png](screenshots/example.png)
+![exit.png](screenshots/exit.png)
 
-Comment on test result. Comment on test result. Comment on test result. Comment on test result. Comment on test result. Comment on test result.
-
+Exit is accessible
 ---
 
 ## Example Test Name
