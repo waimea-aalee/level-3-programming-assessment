@@ -16,22 +16,23 @@ Using a screenshot of the exit
 
 ![exit.png](screenshots/exit.png)
 
-Exit is accessible
+The exit is accessible
 ---
 
-## Example Test Name
+## Invalid Movements
 
-Example test description. Example test description.Example test description. Example test description.Example test description. Example test description.
+User is not able to move into rooms that have no access, the buttons are greyed out
 
-### Test Data Used
+### Screenshot
 
-Details of test data. Details of test data. Details of test data. Details of test data. Details of test data. Details of test data. Details of test data.
+The screenshot shows the areas that the player is not able to go to avoid invalid moves.
 
 ### Test Result
 
-![example.png](screenshots/example.png)
+![buttons.png](screenshots/buttons.png)
 
-Comment on test result. Comment on test result. Comment on test result. Comment on test result. Comment on test result. Comment on test result.
+The screenshot here shows 2 greyed out directions that are invalid moves, so does not let the user
+move in those directions but will allow them to use the white direction buttons to navigate
 
 ---
 

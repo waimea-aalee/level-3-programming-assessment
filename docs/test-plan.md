@@ -24,17 +24,17 @@ User should be able to exit and then say they have escaped the school
 
 ---
 
-## Example Test Name
+## Invalid movement
 
-Example test description. Example test description. Example test description. Example test description. Example test description. Example test description.
+The user should not be able to make invalid moves, going into a room that has no access
 
 ### Test Data To Use
 
-Details of test data and reasons for selection. Details of test data and reasons for selection. Details of test data and reasons for selection.
+Screenshot of the greyed out directions they are not able to be used 
 
 ### Expected Test Result
 
-Statement detailing what should happen. Statement detailing what should happen. Statement detailing what should happen. Statement detailing what should happen.
+The user should be kept in the same room until a valid move is made
 
 ---
 
