@@ -12,15 +12,15 @@ Terminology:
 
 ## Movement
 
-The exit should be possible to get to
+Rooms should all be accessible so exit is possible to get to
 
-### Movement
+### Test Data To Use
 
-The player should not be able to go to invalid rooms
+A screenshot showing the exit in the game shows that it is possible
 
 ### Expected Test Result
 
-Statement detailing what should happen. Statement detailing what should happen. Statement detailing what should happen. Statement detailing what should happen.
+User should be able to exit and then say they have escaped the school
 
 ---
 
