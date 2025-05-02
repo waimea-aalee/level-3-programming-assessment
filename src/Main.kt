@@ -30,7 +30,6 @@ fun main() {
 
 
 class Room (val name: String, val description: String) {
-    var item: String? = null
     var north: Room? = null
     var south: Room? = null
     var east: Room? = null
@@ -82,10 +81,9 @@ class App() {
         val outside = Room("Congrats!", "You have escaped the school!")
 
 
-
-
-
-
+        /**
+         * Directions to move around the map
+         */
 
         corridor.north = emptyClass
         corridor.south = office
@@ -192,12 +190,6 @@ class App() {
         if (currentLocation.west == null) return
 
         currentLocation = currentLocation.west!!
-    }
-
-    // Application logic functions
-    fun updateLocation(newLocation: String) {
-//        currentLocation = newLocation
-
     }
 }
 

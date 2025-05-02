@@ -16,8 +16,8 @@ The game functions correctly and meets the specification:
 - [X] The **current status** of the game is **shown in the GUI**, updated each player input
 - [X] The game is based on a **non-trivial map**
 - [X] The player can **move between locations**
-- [ ] The player has a **clear purpose** they can attempt to achieve
-- [ ] A **win / end / loss state** is possible
+- [X] The player has a **clear purpose** they can attempt to achieve
+- [X] A **win / end / loss state** is possible
 
 ### Program Code
 
@@ -37,7 +37,7 @@ The program structure:
 
 The program code:
 - [X] Is **indented** correctly
-- [ ] Is **laid-out clearly**
+- [X] Is **laid-out clearly**
 - [ ] Contains **comments** that help in understanding how it works
 
 ### Program Testing
